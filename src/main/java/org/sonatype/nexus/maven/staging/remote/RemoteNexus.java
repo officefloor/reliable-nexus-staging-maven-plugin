@@ -139,6 +139,7 @@ public class RemoteNexus
   protected NexusClient createNexusClient(final Parameters parameters) {
 	  
 	// RELIABILITY CHANGE
+    log.info(" + Reliable connection");
 	IllegalArgumentException connectException = null;
 	for (int attempt = 0; attempt < 10; attempt++) {
 	  
@@ -202,7 +203,7 @@ public class RemoteNexus
     }
     
     // RELIABILITY CHANGE
-    log.info("Failed connection attempt " + attempt, connectException);
+    log.info(" ! Failed connection attempt " + attempt, connectException);
     try {
     	Thread.sleep(attempt * 60 * 1000);
     } catch (InterruptedException ex) {
